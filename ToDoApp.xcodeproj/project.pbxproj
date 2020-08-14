@@ -25,6 +25,7 @@
 		99DFCD4124E6D7E2009B196A /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DFCD4024E6D7E2009B196A /* DataProvider.swift */; };
 		99DFCD4324E6DABC009B196A /* DataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DFCD4224E6DABC009B196A /* DataProviderTests.swift */; };
 		99DFCD4524E6E451009B196A /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DFCD4424E6E451009B196A /* TaskCell.swift */; };
+		99DFCD4824E7155B009B196A /* TaskCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DFCD4724E7155B009B196A /* TaskCellTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		99DFCD4024E6D7E2009B196A /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		99DFCD4224E6DABC009B196A /* DataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderTests.swift; sourceTree = "<group>"; };
 		99DFCD4424E6E451009B196A /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		99DFCD4724E7155B009B196A /* TaskCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		99DFCD1024E58B2A009B196A /* ToDoAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				99DFCD4624E71547009B196A /* View */,
 				99DFCD3D24E6D2FE009B196A /* Controller */,
 				99DFCD3724E5961F009B196A /* Manager */,
 				99DFCD1124E58B2A009B196A /* ToDoAppTests.swift */,
@@ -222,6 +225,14 @@
 				99DFCD4224E6DABC009B196A /* DataProviderTests.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		99DFCD4624E71547009B196A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				99DFCD4724E7155B009B196A /* TaskCellTests.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +383,7 @@
 			files = (
 				99DFCD2F24E58CD9009B196A /* TaskTests.swift in Sources */,
 				99DFCD3624E59172009B196A /* LocationTests.swift in Sources */,
+				99DFCD4824E7155B009B196A /* TaskCellTests.swift in Sources */,
 				99DFCD4324E6DABC009B196A /* DataProviderTests.swift in Sources */,
 				99DFCD3924E59636009B196A /* TaskManagerTests.swift in Sources */,
 				99DFCD3F24E6D326009B196A /* TaskListViewControllerTests.swift in Sources */,

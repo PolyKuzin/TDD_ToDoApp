@@ -25,7 +25,23 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Srr-9X-twd" id="jh0-tJ-7y2">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPg-k4-rxc">
+                                                    <rect key="frame" x="40" y="11.5" width="334" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KPg-k4-rxc" firstAttribute="leading" secondItem="jh0-tJ-7y2" secondAttribute="leadingMargin" constant="20" id="9lo-od-FXd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="KPg-k4-rxc" secondAttribute="trailing" constant="20" id="U2e-ji-c6h"/>
+                                                <constraint firstItem="KPg-k4-rxc" firstAttribute="centerY" secondItem="jh0-tJ-7y2" secondAttribute="centerY" id="hgO-lP-IsH"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="KPg-k4-rxc" id="hle-7t-lJJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
