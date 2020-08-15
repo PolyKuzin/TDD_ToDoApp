@@ -22,9 +22,9 @@ struct Location {
 extension Location: Equatable {
 	
 	static func == (lhs: Location, rhs: Location) -> Bool {
-		guard rhs.coordinate?.latitude == lhs.coordinate?.latitude &&
-			lhs.coordinate?.longitude == rhs.coordinate?.longitude &&
-			lhs.name == rhs.name else { return false }
+		guard rhs.coordinate?.latitude	== lhs.coordinate?.latitude &&
+			lhs.coordinate?.longitude	== rhs.coordinate?.longitude &&
+			lhs.name					== rhs.name else { return false }
 		return true
 	}
 }

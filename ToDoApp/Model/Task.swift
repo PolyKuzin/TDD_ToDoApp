@@ -25,9 +25,9 @@ struct Task {
 extension Task: Equatable {
 	static func == (lhs: Task, rhs: Task) -> Bool {
 		if
-			lhs.title == rhs.title,
-			lhs.description == rhs.description,
-			lhs.location == rhs.location {
+			lhs.title		== rhs.title,
+			lhs.description	== rhs.description,
+			lhs.location	== rhs.location {
 			return true
 		}
 		return false

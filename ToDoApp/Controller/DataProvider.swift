@@ -30,10 +30,11 @@ extension DataProvider: UITableViewDelegate {
 }
 
 extension DataProvider: UITableViewDataSource {
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
-		guard let section = Section(rawValue: section) else { fatalError() }
-		guard let taskManager = taskManager else { return 0 }
+		guard let section		= Section(rawValue: section) else { fatalError() }
+		guard let taskManager	= taskManager else { return 0 }
 		switch section {
 		case .todo: return taskManager.tasksCount
 		case .done: return taskManager.doneTasksCount
@@ -49,10 +50,13 @@ extension DataProvider: UITableViewDataSource {
 		
 		let task  : Task
 		switch section {
+			
 		case .todo: task = taskManager.task(at: indexPath.row)
 		case .done: task = taskManager.doneTask(at: indexPath.row)
 		}
+		
 		cell.configure(withTask: task)
+		
 		return cell
 	}
 	
@@ -62,7 +66,6 @@ extension DataProvider: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//		taskManager?.checkTask(at: indexPath.row)
 		
 		guard let section		= Section(rawValue: indexPath.section) else { fatalError() }
 		guard let taskManager	= taskManager else { fatalError() }
