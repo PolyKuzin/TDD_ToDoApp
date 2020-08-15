@@ -50,25 +50,25 @@ class NewTaskViewControllerTests: XCTestCase {
 	}
 	
 	func testSaveUsesGeocoderToConverCoordinateFromAdress() {
-		let df = DateFormatter()
-		df.dateFormat = "dd.MM.yy"
-		let date = df.date(from: "01.01.19")
-		sut.titleTextField.text = "Foo"
-		sut.descriptionTextField.text = "Bar"
-		sut.dateTextField.text = "01.01.19"
-		sut.adressTextField.text = "Уфа"
-		sut.locationTextField.text = "Baz"
-		sut.taskManager = TaskManager()
+		let df			= DateFormatter()
+		df.dateFormat	= "dd.MM.yy"
+		let date		= df.date(from: "01.01.19")
+		sut.titleTextField.text			= "Foo"
+		sut.descriptionTextField.text	= "Bar"
+		sut.dateTextField.text			= "01.01.19"
+		sut.adressTextField.text		= "Уфа"
+		sut.locationTextField.text		= "Baz"
+		sut.taskManager					= TaskManager()
 		
-		let mockGeocoder = MockCLGeocoder()
-		sut.geocoder = mockGeocoder
+		let mockGeocoder	= MockCLGeocoder()
+		sut.geocoder		= mockGeocoder
 		sut.save()
 		
-		let coordinate = CLLocationCoordinate2D(latitude: 54.7373058, longitude: 55.9722491)
-		let location = Location(name: "Baz", coordinate: coordinate)
-		let generatedTask = Task(title: "Foo", description: "Bar", location: location, date: date)
-		placemark = MockCLPlaceMark()
-		placemark.mockCoordinate = coordinate
+		let coordinate		= CLLocationCoordinate2D(latitude: 54.7373058, longitude: 55.9722491)
+		let location		= Location(name: "Baz", coordinate: coordinate)
+		let generatedTask	= Task(title: "Foo", description: "Bar", location: location, date: date)
+		placemark			= MockCLPlaceMark()
+		placemark.mockCoordinate	= coordinate
 		mockGeocoder.complitionHandler?([placemark], nil)
 		
 		let task = sut.taskManager.task(at: 0)
@@ -84,16 +84,16 @@ class NewTaskViewControllerTests: XCTestCase {
 	}
 	
 	func testGeocoderFetchesCorrectCoordinate() {
-		let geocoderAnswer = expectation(description: "Geocoder answer")
-		let adressString = "Уфа"
-		let geocoder = CLGeocoder()
+		let geocoderAnswer	= expectation(description: "Geocoder answer")
+		let adressString	= "Уфа"
+		let geocoder		= CLGeocoder()
 		geocoder.geocodeAddressString(adressString) {(placemarks, error) in
 			
-			let placemark = placemarks?.first
-			let location = placemark?.location
+			let placemark	= placemarks?.first
+			let location	= placemark?.location
 			guard
-				let latitude = location?.coordinate.latitude,
-				let longitude = location?.coordinate.longitude else { XCTFail(); return}
+				let latitude	= location?.coordinate.latitude,
+				let longitude	= location?.coordinate.longitude else { XCTFail(); return}
 			XCTAssertEqual(latitude, 54.7373058)
 			XCTAssertEqual(longitude, 55.9722491)
 			geocoderAnswer.fulfill()

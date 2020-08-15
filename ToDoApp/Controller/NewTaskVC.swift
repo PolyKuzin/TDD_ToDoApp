@@ -25,17 +25,21 @@ class NewTaskVC: UIViewController {
 	@IBAction func save() {
 //TODO: Проверка на ДАТУ определенного формата
 
-		let titleString = titleTextField.text
-		let descriptionString = descriptionTextField.text
-		let locationString = locationTextField.text
-		let date = dateFormatter.date(from: dateTextField.text!)
-		let adressString = adressTextField.text
+		let titleString			= titleTextField.text
+		let descriptionString	= descriptionTextField.text
+		let locationString		= locationTextField.text
+		let date				= dateFormatter.date(from: dateTextField.text!)
+		let adressString		= adressTextField.text
 		
 		geocoder.geocodeAddressString(adressString!) { [unowned self] (placemarks, err) in
-			let placemark = placemarks?.first
-			let coordinate = placemark?.location?.coordinate
-			let location = Location(name: locationString!, coordinate: coordinate)
-			let task = Task(title: titleString!, description: descriptionString, location: location, date: date)
+			let placemark	= placemarks?.first
+			let coordinate	= placemark?.location?.coordinate
+			let location	= Location(name: locationString!,
+									   coordinate: coordinate)
+			let task		= Task(title: titleString!,
+								   description: descriptionString,
+								   location: location,
+								   date: date)
 			self.taskManager.add(task: task)
 		}
 	}
