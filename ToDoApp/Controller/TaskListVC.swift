@@ -17,5 +17,11 @@ class TaskListVC: UIViewController {
 		super.viewDidLoad()
 
 	}
+	
+	@IBAction func addNewTaskButton(_ sender: UIBarButtonItem) {
+		if let vc = storyboard?.instantiateViewController(withIdentifier: String(describing: NewTaskVC.self)) as? NewTaskVC {
+			present(vc, animated: true, completion: nil)
+		}
+	}
 }
 
