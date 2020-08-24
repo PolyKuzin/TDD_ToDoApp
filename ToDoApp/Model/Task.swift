@@ -33,3 +33,17 @@ extension Task: Equatable {
 		return false
 	}
 }
+
+extension Task {
+	typealias PlistDictionary = [String : Any]
+	init?(dict: PlistDictionary) {
+		self.title			= dict["title"]			as! String
+		self.description	= dict["description"]	as? String
+		self.date			= dict["date"]			as? Date ?? Date()
+		if let locationDict	= dict["location"]		as? [String : Any] {
+			self.location	= Location(dict: locationDict)
+		} else {
+			self.location	= nil
+		}
+	}
+}
