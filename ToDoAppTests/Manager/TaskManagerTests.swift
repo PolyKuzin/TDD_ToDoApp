@@ -19,7 +19,8 @@ class TaskManagerTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        sut = nil
+		sut.removeAll()
+		sut = nil
 		super.tearDown()
     }
 
