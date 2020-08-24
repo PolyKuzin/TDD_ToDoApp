@@ -27,6 +27,4 @@ class ToDoAppTests: XCTestCase {
 		
 		XCTAssertTrue(rootViewController is TaskListVC)
 	}
-	
-	
 }
