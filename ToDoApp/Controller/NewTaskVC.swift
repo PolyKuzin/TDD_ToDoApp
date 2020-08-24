@@ -32,11 +32,11 @@ class NewTaskVC: UIViewController {
 		let adressString		= adressTextField.text
 		
 		geocoder.geocodeAddressString(adressString!) { [unowned self] (placemarks, err) in
-			let placemark	= placemarks?.first
-			let coordinate	= placemark?.location?.coordinate
-			let location	= Location(name: locationString!,
-									   coordinate: coordinate)
-			let task		= Task(title: titleString!,
+			let placemark		= placemarks?.first
+			let coordinate		= placemark?.location?.coordinate
+			let location		= Location(name			: locationString!,
+										   coordinate	: coordinate)
+			let task			= Task(title: titleString!,
 								   description: descriptionString,
 								   location: location,
 								   date: date)
@@ -45,10 +45,8 @@ class NewTaskVC: UIViewController {
 	}
 	
 	var dateFormatter : DateFormatter {
-		let df = DateFormatter()
-		df.dateFormat = "dd.MM.yy"
+		let df			= DateFormatter()
+		df.dateFormat	= "dd.MM.yy"
 		return df
 	}
-
-
 }
