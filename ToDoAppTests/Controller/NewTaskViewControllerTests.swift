@@ -69,7 +69,7 @@ class NewTaskViewControllerTests: XCTestCase {
 		let generatedTask	= Task(title: "Foo", description: "Bar", location: location, date: date)
 		placemark			= MockCLPlaceMark()
 		placemark.mockCoordinate	= coordinate
-		mockGeocoder.complitionHandler?([placemark], nil)
+		mockGeocoder.completionHandler?([placemark], nil)
 		
 		let task = sut.taskManager.task(at: 0)
 		
@@ -106,10 +106,10 @@ extension NewTaskViewControllerTests {
 	
 	class MockCLGeocoder: CLGeocoder {
 		
-		var complitionHandler: CLGeocodeCompletionHandler?
+		var completionHandler: CLGeocodeCompletionHandler?
 		
 		override func geocodeAddressString(_ addressString: String, completionHandler: @escaping CLGeocodeCompletionHandler) {
-			self.complitionHandler = completionHandler
+			self.completionHandler = completionHandler
 		}
 	}
 	
