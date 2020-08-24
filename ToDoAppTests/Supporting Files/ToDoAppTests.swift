@@ -21,9 +21,9 @@ class ToDoAppTests: XCTestCase {
     }
 
 	func testInitialViewControllerIsTaskListVC() {
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-		let rootViewController = navigationController.viewControllers.first as! TaskListVC
+		let storyboard				= UIStoryboard(name: "Main", bundle: nil)
+		let navigationController	= storyboard.instantiateInitialViewController() as! UINavigationController
+		let rootViewController		= navigationController.viewControllers.first	as! TaskListVC
 		
 		XCTAssertTrue(rootViewController is TaskListVC)
 	}

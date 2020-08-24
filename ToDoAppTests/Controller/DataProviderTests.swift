@@ -11,24 +11,23 @@ import XCTest
 
 class DataProviderTests: XCTestCase {
 
-    var sut: DataProvider!
-    var tableView: UITableView!
-    
-    var controller: TaskListVC!
+    var sut			: DataProvider!
+    var tableView	: UITableView!
+    var controller	: TaskListVC!
     
     override func setUp() {
 		super.setUp()
-        sut = DataProvider()
-        sut.taskManager = TaskManager()
+        sut				= DataProvider()
+        sut.taskManager	= TaskManager()
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        controller = storyboard.instantiateViewController(withIdentifier: String(describing: TaskListVC.self)) as? TaskListVC
+        let storyboard	= UIStoryboard(name: "Main", bundle: nil)
+        controller		= storyboard.instantiateViewController(withIdentifier: String(describing: TaskListVC.self)) as? TaskListVC
         
         controller.loadViewIfNeeded()
         
-        tableView = controller.tableView
-        tableView.dataSource = sut
-        tableView.delegate = sut
+        tableView				= controller.tableView
+        tableView.dataSource	= sut
+        tableView.delegate		= sut
     }
 
     override func tearDown() {
@@ -66,7 +65,7 @@ class DataProviderTests: XCTestCase {
         
         XCTAssertEqual(tableView.numberOfRows(inSection: 1), 2)
     }
-    
+	
     func testCellForRowAtIndexPathReturnsTaskCell() {
         sut.taskManager?.add(task: Task(title: "Foo"))
         tableView.reloadData()
@@ -165,6 +164,7 @@ extension DataProviderTests {
             let mockTableView = MockTableView(frame: CGRect(x: 0, y: 0, width: 375, height: 658), style: .plain)
             mockTableView.dataSource = dataSource
             mockTableView.register(MockTaskCell.self, forCellReuseIdentifier: String(describing: TaskCell.self))
+			
             return mockTableView
         }
         

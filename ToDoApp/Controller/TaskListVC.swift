@@ -22,6 +22,7 @@ class TaskListVC: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
 		let taskManager = TaskManager()
         dataProvider.taskManager = taskManager
         

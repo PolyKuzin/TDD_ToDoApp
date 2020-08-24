@@ -27,8 +27,8 @@ class TaskManager {
 											   selector: #selector(save),
 											   name: UIApplication.willResignActiveNotification,
 											   object: nil)
-		if let data = try? Data(contentsOf: tasksURL) {
-			let dictionaries = try? PropertyListSerialization.propertyList(from: data,
+		if let data				= try? Data(contentsOf: tasksURL) {
+			let dictionaries	= try? PropertyListSerialization.propertyList(from: data,
 																		   options: [],
 																		   format: nil) as? [[String: Any]]
 			guard let dicts = dictionaries else { fatalError() }
@@ -69,12 +69,14 @@ class TaskManager {
 	}
 	
 	func checkTask(at index: Int) {
-		let task = tasks.remove(at: index)
+		var task = tasks.remove(at: index)
+		task.isDone.toggle()
 		doneTasks.append(task)
 	}
 	
 	func uncheckTask(at index: Int) {
-		let task = doneTasks.remove(at: index)
+		var task = doneTasks.remove(at: index)
+		task.isDone.toggle()
 		tasks.append(task)
 	}
 	

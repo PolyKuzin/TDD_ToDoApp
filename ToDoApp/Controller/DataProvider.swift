@@ -8,6 +8,8 @@
 
 import UIKit
 
+//TODO: Sections Titles + Tests
+
 enum Section: Int, CaseIterable {
 	case todo
 	case done
@@ -63,7 +65,7 @@ extension DataProvider: UITableViewDataSource {
 		case .done: task = taskManager.doneTask(at: indexPath.row)
 		}
 		
-		cell.configure(withTask: task)
+		cell.configure(withTask: task, done: task.isDone)
 		
 		return cell
 	}
@@ -72,6 +74,14 @@ extension DataProvider: UITableViewDataSource {
 		
 		return Section.allCases.count
 	}
+	
+//	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//		guard let section		= Section(rawValue: section) else { fatalError() }
+//		switch section {
+//		case .todo: return "To do"
+//		case .done: return "Done"
+//		}
+//	}
 	
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		

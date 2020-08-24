@@ -43,6 +43,7 @@ class LocationTests: XCTestCase {
 									"latitude"	: 10.0,
 									"longitude"	: 10.0]
 		let createdLocation = Location(dict: dict)
+		
 		XCTAssertEqual(location, createdLocation)
 	}
 	
