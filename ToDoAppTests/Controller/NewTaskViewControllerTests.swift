@@ -16,13 +16,14 @@ class NewTaskViewControllerTests: XCTestCase {
 	var placemark : MockCLPlaceMark!
 	
     override func setUpWithError() throws {
+		super.setUp()
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		sut = storyboard .instantiateViewController(withIdentifier: String(describing: NewTaskVC.self)) as? NewTaskVC
 		sut.loadViewIfNeeded()
 	}
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+		super.tearDown()
     }
 
 	func testHasTitleTextField() {
@@ -121,7 +122,9 @@ class NewTaskViewControllerTests: XCTestCase {
 		mockNewTaskVC.save()
 		
 		//then
-		XCTAssertTrue(mockNewTaskVC.isDissmised)
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+			XCTAssertTrue(mockNewTaskVC.isDissmised)
+		}
 	}
 }
 

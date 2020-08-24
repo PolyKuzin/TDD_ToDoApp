@@ -14,6 +14,7 @@ class TaskListViewControllerTests: XCTestCase {
     var sut: TaskListVC!
     
     override func setUp() {
+		super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: String(describing: TaskListVC.self))
         sut = vc as? TaskListVC
@@ -22,7 +23,7 @@ class TaskListViewControllerTests: XCTestCase {
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+		super.tearDown()
     }
     
     func testWhenViewIsLoadedTableViewNotNil() {
@@ -75,5 +76,26 @@ class TaskListViewControllerTests: XCTestCase {
 		let newTaskVC = preparingNewTaskVC()
 		
 		XCTAssertTrue(newTaskVC.taskManager === sut.dataProvider.taskManager)
+	}
+	
+	func testWhenViewApperedTableViewReloded() {
+		let mockTableView	= MockTableView()
+		sut.tableView		= mockTableView
+		
+		sut.beginAppearanceTransition(true, animated: true)
+		sut.endAppearanceTransition()
+		
+		XCTAssertTrue((sut.tableView as! MockTableView).isReloaded)
+	}
+}
+
+extension TaskListViewControllerTests {
+	
+	class MockTableView: UITableView {
+		
+		var isReloaded = false
+		override func reloadData() {
+			isReloaded = true
+		}
 	}
 }

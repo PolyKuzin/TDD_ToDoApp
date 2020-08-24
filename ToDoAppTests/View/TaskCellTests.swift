@@ -14,6 +14,7 @@ class TaskCellTests: XCTestCase {
     var cell: TaskCell!
     
     override func setUp() {
+		super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: String(describing: TaskListVC.self)) as! TaskListVC
         controller.loadViewIfNeeded()
@@ -26,7 +27,7 @@ class TaskCellTests: XCTestCase {
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+		super.tearDown()
     }
     
     func testCellHasTitleLabel() {

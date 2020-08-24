@@ -14,13 +14,13 @@ class NewTaskVC: UIViewController {
 	var taskManager : TaskManager!
 	var geocoder 	= CLGeocoder()
 	
-	@IBOutlet weak var titleTextField		: UITextField!
-	@IBOutlet weak var locationTextField	: UITextField!
-	@IBOutlet weak var adressTextField		: UITextField!
-	@IBOutlet weak var descriptionTextField	: UITextField!
-	@IBOutlet weak var dateTextField		: UITextField!
-	@IBOutlet weak var cancelButton			: UIButton!
-	@IBOutlet weak var saveButton			: UIButton!
+	@IBOutlet var titleTextField		: UITextField!
+	@IBOutlet var locationTextField	: UITextField!
+	@IBOutlet var adressTextField		: UITextField!
+	@IBOutlet var descriptionTextField	: UITextField!
+	@IBOutlet var dateTextField		: UITextField!
+	@IBOutlet var cancelButton			: UIButton!
+	@IBOutlet var saveButton			: UIButton!
 	
 	@IBAction func save() {
 //TODO: Проверка на ДАТУ определенного формата
@@ -41,8 +41,10 @@ class NewTaskVC: UIViewController {
 								   location: location,
 								   date: date)
 			self.taskManager.add(task: task)
+			DispatchQueue.main.async {
+				self.dismiss(animated: true, completion: nil)
+			}
 		}
-		dismiss(animated: true, completion: nil)
 	}
 	
 	var dateFormatter : DateFormatter {
