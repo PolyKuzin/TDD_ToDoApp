@@ -13,15 +13,17 @@ class TaskListVC: UIViewController {
 	@IBOutlet weak var tableView	: UITableView!
 	@IBOutlet var dataProvider		: DataProvider!
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-
-	}
-	
 	@IBAction func addNewTaskButton(_ sender: UIBarButtonItem) {
 		if let vc = storyboard?.instantiateViewController(withIdentifier: String(describing: NewTaskVC.self)) as? NewTaskVC {
+			vc.taskManager = self.dataProvider.taskManager
 			present(vc, animated: true, completion: nil)
 		}
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		let taskManager = TaskManager()
+		dataProvider.taskManager = taskManager
 	}
 }
 
