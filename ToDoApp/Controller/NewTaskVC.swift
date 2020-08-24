@@ -42,6 +42,7 @@ class NewTaskVC: UIViewController {
 								   date: date)
 			self.taskManager.add(task: task)
 		}
+		dismiss(animated: true, completion: nil)
 	}
 	
 	var dateFormatter : DateFormatter {
