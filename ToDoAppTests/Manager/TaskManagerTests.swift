@@ -110,7 +110,6 @@ class TaskManagerTests: XCTestCase {
         NotificationCenter.default.post(name: UIApplication.willResignActiveNotification, object: nil)
         
         taskManager = nil
-        
         taskManager = TaskManager()
         
         XCTAssertEqual(taskManager.tasksCount, 2)

@@ -85,6 +85,7 @@ class ToDoAppUITests: XCTestCase {
 
 extension XCUIApplication {
     var isOnMainView: Bool {
+		
         return otherElements["mainView"].exists
     }
 }

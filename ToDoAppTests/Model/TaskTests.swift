@@ -42,11 +42,11 @@ class TaskTests: XCTestCase {
     }
     
     func testWhenGivenLocationSetsLocation() {
-        let location = Location(name: "Foo")
+        let location	= Location(name: "Foo")
         
-        let task = Task(title: "Bar",
-                        description: "Buz",
-                        location: location)
+        let task 		= Task(title: "Bar",
+							   description: "Buz",
+							   location: location)
         
         XCTAssertEqual(location, task.location)
     }
@@ -59,12 +59,11 @@ class TaskTests: XCTestCase {
 													description	: "Bar",
 													location	: location,
 													date		: date)
-		
 		let dictionary: [String : Any]		= ["title"			: "Foo",
 											   "description"	: "Bar",
 											   "location"		: locationDict,
 											   "date"			: date]
-		let createdTask = Task(dict: dictionary)
+		let createdTask 					= Task(dict: dictionary)
 		
 		XCTAssertEqual(task, createdTask)
 	}
@@ -76,16 +75,15 @@ class TaskTests: XCTestCase {
 													description	: "Bar",
 													location	: location,
 													date		: date)
-		
-		let generatedTask = Task(dict: task.dict)
+		let generatedTask 					= Task(dict: task.dict)
 		
 		XCTAssertEqual(task, generatedTask)
 	}
 	
 	func testWhenTaskManagerRecreatedSavedTasksSchouldBeEqual() {
-		var taskManager: TaskManager! = TaskManager()
-		let task1 = Task(title: "Foo")
-		let task2 = Task(title: "Bar")
+		var taskManager: TaskManager!	= TaskManager()
+		let task1 						= Task(title: "Foo")
+		let task2						= Task(title: "Bar")
 		
 		taskManager.add(task: task1)
 		taskManager.add(task: task2)
@@ -93,7 +91,6 @@ class TaskTests: XCTestCase {
 		NotificationCenter.default.post(name: UIApplication.willResignActiveNotification, object: nil)
 		
 		taskManager = nil
-		
 		taskManager = TaskManager()
 		
 		XCTAssertEqual(taskManager.tasksCount, 2)

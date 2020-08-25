@@ -17,6 +17,7 @@ class LocationTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+		
 		super.tearDown()
     }
     
@@ -27,9 +28,9 @@ class LocationTests: XCTestCase {
 	}
 	
     func testInitSetsCoordinates() {
-        let coordinate = CLLocationCoordinate2D(
-            latitude: 1, longitude: 2)
-        let location = Location(name: "Foo", coordinate: coordinate)
+        let coordinate	= CLLocationCoordinate2D(latitude: 1,
+												 longitude: 2)
+        let location	= Location(name: "Foo", coordinate: coordinate)
 		
 		XCTAssertEqual(location.coordinate?.latitude, coordinate.latitude)
 		XCTAssertEqual(location.coordinate?.longitude, coordinate.longitude)
