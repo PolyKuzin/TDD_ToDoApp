@@ -23,11 +23,11 @@ class TaskListVC: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-        let taskManager = TaskManager()
-        dataProvider.taskManager = taskManager
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(showDetail(withNotification:)), name: NSNotification.Name(rawValue: "DidSelectRow notification"), object: nil)
-        
+        let taskManager				= TaskManager()
+        dataProvider.taskManager	= taskManager
+
+		NotificationCenter.default.addObserver(self, selector: #selector(showDetail(withNotification:)), name: NSNotification.Name(rawValue: "DidSelectRow notification"), object: nil)
+
         view.accessibilityIdentifier = "mainView"
     }
 	
@@ -36,16 +36,17 @@ class TaskListVC: UIViewController {
 		tableView.reloadData()
 	}
 	
-	@objc
-	func showDetail(withNotification notification: Notification) {
-			guard
-				let userInfo = notification.userInfo,
-				let task = userInfo["task"] as? Task,
-				let detailViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: DetailVC.self)) as? DetailVC else {
-				fatalError()
-			}
-			detailViewController.task = task
+	@objc func showDetail(withNotification notification: Notification) {
+		guard
+			let userInfo					= notification.userInfo,
+			let task						= userInfo["task"] as? Task else { fatalError() }
+		if let detailViewController			= storyboard?.instantiateViewController(withIdentifier: "DetailVC")
+			as? DetailVC {
+			detailViewController.task		= task
 			navigationController?.pushViewController(detailViewController, animated: true)
+			print("!!!!!!")
 		}
+		print("!!!!!!")
+	}
 }
 
