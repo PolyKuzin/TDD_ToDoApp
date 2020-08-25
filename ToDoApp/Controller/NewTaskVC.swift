@@ -23,7 +23,7 @@ class NewTaskVC: UIViewController {
 	@IBOutlet var saveButton			: UIButton!
 	
 	@IBAction func save() {
-//TODO: Проверка на ДАТУ определенного формата
+//TODO: Check Date For Formate
 		let titleString			= titleTextField.text
 		let descriptionString	= descriptionTextField.text
 		let locationString		= locationTextField.text

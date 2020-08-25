@@ -14,7 +14,7 @@ class TaskCell: UITableViewCell {
 	@IBOutlet weak var locationLabel	: UILabel!
 	@IBOutlet weak var dateLabel		: UILabel!
 	
-	private var dateFormatter: DateFormatter {
+	private var dateFormatter			: DateFormatter {
 		let df			= DateFormatter()
 		df.dateFormat	= "dd.MM.yy"
 		

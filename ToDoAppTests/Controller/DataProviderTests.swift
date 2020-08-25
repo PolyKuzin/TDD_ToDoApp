@@ -17,11 +17,11 @@ class DataProviderTests: XCTestCase {
     
     override func setUp() {
 		super.setUp()
-        sut				= DataProvider()
-        sut.taskManager	= TaskManager()
+        sut						= DataProvider()
+        sut.taskManager			= TaskManager()
         
-        let storyboard	= UIStoryboard(name: "Main", bundle: nil)
-        controller		= storyboard.instantiateViewController(withIdentifier: String(describing: TaskListVC.self)) as? TaskListVC
+        let storyboard			= UIStoryboard(name: "Main", bundle: nil)
+        controller				= storyboard.instantiateViewController(withIdentifier: String(describing: TaskListVC.self)) as? TaskListVC
         
         controller.loadViewIfNeeded()
         
@@ -35,7 +35,7 @@ class DataProviderTests: XCTestCase {
     }
     
     func testNumberOfSectionsIsTwo() {
-        let numberOfSections = tableView.numberOfSections
+        let numberOfSections	= tableView.numberOfSections
         
         XCTAssertEqual(numberOfSections, 2)
     }
@@ -87,9 +87,8 @@ class DataProviderTests: XCTestCase {
     }
     
     func testCellForRowInSectionZeroCallsConfigure() {
-        let mockTableView = MockTableView.mockTableView(withDataSource: sut)
-        
-        let task = Task(title: "Foo")
+        let task			= Task(title: "Foo")
+        let mockTableView	= MockTableView.mockTableView(withDataSource: sut)
         sut.taskManager?.add(task: task)
         mockTableView.reloadData()
         
@@ -99,10 +98,9 @@ class DataProviderTests: XCTestCase {
     }
     
     func testCellForRowInSectionOneCallsConfigure() {
-        let mockTableView = MockTableView.mockTableView(withDataSource: sut)
-        
-        let task = Task(title: "Foo")
-        let task2 = Task(title: "Bar")
+        let task			= Task(title: "Foo")
+        let task2			= Task(title: "Bar")
+        let mockTableView	= MockTableView.mockTableView(withDataSource: sut)
         sut.taskManager?.add(task: task)
         sut.taskManager?.add(task: task2)
         sut.taskManager?.checkTask(at: 0)
@@ -161,8 +159,8 @@ extension DataProviderTests {
         var cellIsDequeued = false
         
         static func mockTableView(withDataSource dataSource: UITableViewDataSource) -> MockTableView {
-            let mockTableView = MockTableView(frame: CGRect(x: 0, y: 0, width: 375, height: 658), style: .plain)
-            mockTableView.dataSource = dataSource
+            let mockTableView			= MockTableView(frame: CGRect(x: 0, y: 0, width: 375, height: 658), style: .plain)
+            mockTableView.dataSource	= dataSource
             mockTableView.register(MockTaskCell.self, forCellReuseIdentifier: String(describing: TaskCell.self))
 			
             return mockTableView

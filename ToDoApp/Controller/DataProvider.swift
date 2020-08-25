@@ -11,11 +11,13 @@ import UIKit
 //TODO: Sections Titles + Tests
 
 enum Section: Int, CaseIterable {
+	
 	case todo
 	case done
 }
 
 class DataProvider: NSObject {
+	
 	var taskManager	: TaskManager?
 }
 
@@ -36,7 +38,9 @@ extension DataProvider: UITableViewDelegate {
 		switch section {
 		case .todo:
 			guard let task = taskManager?.task(at: indexPath.row) else { return }
-			NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DidselectRow notification"), object: self, userInfo: ["task" : task])
+			NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DidselectRow notification"),
+											object: self,
+											userInfo: ["task" : task])
 		case .done: break
 		}
 	}
@@ -59,6 +63,7 @@ extension DataProvider: UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TaskCell.self), for: indexPath) as! TaskCell
 		guard let section		= Section(rawValue: indexPath.section) else { fatalError() }
 		guard let taskManager	= taskManager else { fatalError()}
+		
 		let task  : Task
 		
 		switch section {
