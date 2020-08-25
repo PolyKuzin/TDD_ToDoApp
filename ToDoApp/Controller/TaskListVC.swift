@@ -26,7 +26,7 @@ class TaskListVC: UIViewController {
         let taskManager				= TaskManager()
         dataProvider.taskManager	= taskManager
 
-		NotificationCenter.default.addObserver(self, selector: #selector(showDetail(withNotification:)), name: NSNotification.Name(rawValue: "DidSelectRow notification"), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(showDetail(withNotification:)), name: NSNotification.Name(rawValue: "DidselectRow notification"), object: nil)
 
         view.accessibilityIdentifier = "mainView"
     }
@@ -44,9 +44,7 @@ class TaskListVC: UIViewController {
 			as? DetailVC {
 			detailViewController.task		= task
 			navigationController?.pushViewController(detailViewController, animated: true)
-			print("!!!!!!")
 		}
-		print("!!!!!!")
 	}
 }
 
