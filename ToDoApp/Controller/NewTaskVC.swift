@@ -15,16 +15,15 @@ class NewTaskVC: UIViewController {
 	var geocoder 	= CLGeocoder()
 	
 	@IBOutlet var titleTextField		: UITextField!
-	@IBOutlet var locationTextField	: UITextField!
+	@IBOutlet var locationTextField		: UITextField!
 	@IBOutlet var adressTextField		: UITextField!
 	@IBOutlet var descriptionTextField	: UITextField!
-	@IBOutlet var dateTextField		: UITextField!
+	@IBOutlet var dateTextField			: UITextField!
 	@IBOutlet var cancelButton			: UIButton!
 	@IBOutlet var saveButton			: UIButton!
 	
 	@IBAction func save() {
 //TODO: Проверка на ДАТУ определенного формата
-
 		let titleString			= titleTextField.text
 		let descriptionString	= descriptionTextField.text
 		let locationString		= locationTextField.text
@@ -36,20 +35,19 @@ class NewTaskVC: UIViewController {
 			let coordinate		= placemark?.location?.coordinate
 			let location		= Location(name			: locationString!,
 										   coordinate	: coordinate)
-			let task			= Task(title: titleString!,
-								   description: descriptionString,
-								   location: location,
-								   date: date)
+			let task			= Task(title	: titleString!,
+								   description	: descriptionString,
+								   location		: location,
+								   date			: date)
 			self.taskManager.add(task: task)
-			DispatchQueue.main.async {
-				self.dismiss(animated: true, completion: nil)
-			}
+			self.dismiss(animated: true, completion: nil)
 		}
 	}
 	
-	var dateFormatter : DateFormatter {
+	var dateFormatter	: DateFormatter {
 		let df			= DateFormatter()
 		df.dateFormat	= "dd.MM.yy"
+		
 		return df
 	}
 }

@@ -17,6 +17,7 @@ class TaskCell: UITableViewCell {
 	private var dateFormatter: DateFormatter {
 		let df			= DateFormatter()
 		df.dateFormat	= "dd.MM.yy"
+		
 		return df
 	}
 	
