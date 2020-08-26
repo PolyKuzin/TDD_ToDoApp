@@ -53,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9925129324F683F300BEEBC2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9963C88F24F3AD4200C183A7 /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
 		9963C89124F3AEB400C183A7 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		9963C89424F3BD7600C183A7 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -131,6 +132,7 @@
 		99DFCCEE24E58B28009B196A = {
 			isa = PBXGroup;
 			children = (
+				9925129324F683F300BEEBC2 /* README.md */,
 				99DFCCF924E58B28009B196A /* ToDoApp */,
 				99DFCD1024E58B2A009B196A /* ToDoAppTests */,
 				99DFCD1B24E58B2A009B196A /* ToDoAppUITests */,
